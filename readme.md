@@ -19,8 +19,9 @@ How to call the microservice:
         Create: POST to URL/add_experience. Requires null values to be present as an empty string for.
             request_form = {"rating": "5", "details":"", "image":"", "userID":"1"}
             requests.post("http://127.0.0.1:8101/add_experience", json=request_form)
-        Read All: GET to URL/experiences
+        Read All: GET to URL/experiences. To request and receive data, assign the get request to a variable and call json() on it:
             response = requests.get('http://127.0.0.1:8101/experiences')
+            process_received_data(response.json())
         Read One: GET to URL/experiences/<experienceID>
             response = requests.get('http://127.0.0.1:8101/experiences/1')
         Update: POST to URL/update_experience. Requires null values to be present as an empty string.
